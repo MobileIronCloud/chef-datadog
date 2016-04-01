@@ -1,0 +1,35 @@
+instances:
+<% @instances.each do |i| -%>
+  - directory: <%= i['directory'] %>
+  <% if i.key?('name') -%>
+    name: "<%= i['name'] %>"
+  <% end -%>
+  <% if i.key?('pattern') -%>
+    pattern: "<%= i['pattern'] %>"
+  <% end -%>
+  <% if i.key?('recursive') %>
+    recursive: True
+  <% else %>
+    recursive: False
+  <% end -%>
+  <% if i.key?('filegauges') %>
+    filegauges: True
+  <% else %>
+    filegauges: False
+  <% end -%>
+  <% if i.key?('dirtagname') %>
+    dirtagname: "<%= i['dirtagname'] %>"
+  <% end -%>
+  <% if i.key?('filetagname') %>
+    filetagname: "<%= i['filetagname'] %>"
+  <% end -%>
+  <% if i.key?('tags') -%>
+    tags:
+    <% i['tags'].each do |t| -%>
+    - <%= t %>
+    <% end -%>
+  <% end -%>
+<% end -%>
+
+# Nothing to configure here
+init_config:
